@@ -103,8 +103,6 @@ header {
     transform: translateY(-50%);
     z-index: -1;
     transition: width 0.5s ease-in-out;
-    border: 0.5px solid rgba(255, 255, 255, 0.8); /* Visible border */
-    border-radius: 1px; /* Smooth rounded edges */
 }
 
 /* Progress Bar Fill */
@@ -113,10 +111,8 @@ header {
     position: absolute;
     height: 100%;
     width: 0%;
-    background: rgb(4, 41, 4);
+    background: rgb(101, 252, 252);
     transition: width 0.5s ease-in-out;
-    border-radius:3px; /* Ensuring round edges for a sleek design */
-    box-shadow: 0 0 1px 0.5px rgba(0, 128, 0, 0.7); /* Glow effect for visibility */
 }
 
 /* Checkpoints */
