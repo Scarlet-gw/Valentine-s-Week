@@ -22,8 +22,8 @@
         /* Floating Home Button */
         .home-button {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 2vh;
+            right: 2vw;
             width: 50px;
             height: 50px;
             background-color: red;
@@ -33,7 +33,7 @@
             align-items: center;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, background-color 0.3s;
         }
         .home-button:hover {
             transform: scale(1.2);
@@ -41,20 +41,16 @@
         }
         .home-button i {
             color: white;
-            font-size: 24px;
+            font-size: 1.5rem;
         }
 
         /* Smooth Fade-in on Load */
         .fade-in {
-            animation: fadeIn 1s ease-in-out
+            animation: fadeIn 1s ease-in-out;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-        /* Smooth Fade-out when Navigating */
-        .fade-out {
-            opacity: 0;
         }
 
         /* Centering Container */
@@ -64,12 +60,15 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            width: 90%;
         }
 
-        /* Heart Animation */
+        /* Responsive Heart */
         .heart {
-            width: 100px;
-            height: 100px;
+            width: 15vw;
+            height: 15vw;
+            max-width: 120px;
+            max-height: 120px;
             background-color: #ff4d6d;
             position: relative;
             transform: rotate(-45deg);
@@ -79,21 +78,23 @@
         .heart::before,
         .heart::after {
             content: "";
-            width: 100px;
-            height: 100px;
+            width: 15vw;
+            height: 15vw;
+            max-width: 120px;
+            max-height: 120px;
             background-color: #ff4d6d;
             border-radius: 50%;
             position: absolute;
         }
 
         .heart::before {
-            top: -50px;
+            top: -50%;
             left: 0;
         }
 
         .heart::after {
             top: 0;
-            left: 50px;
+            left: 50%;
         }
 
         /* Beating Animation */
@@ -106,21 +107,58 @@
             }
         }
 
-        /* Centered Text */
-        h1 {
+        /* Responsive Text */
+        h1, h2 {
             font-family: 'Sacramento', cursive;
-				color: #6d1d30;
-				font-size: 64px;
-				margin-top: 30px;
+            color: #6d1d30;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-size: 5vw;
+            max-size: 64px;
         }
 
         h2 {
-            font-family: 'Sacramento', cursive;
-				color: #6d1d30;
-				font-size: 36px;
-				margin-top: 30px;
+            font-size: 3vw;
+            max-size: 36px;
         }
 
+        /* Media Queries for Small Screens */
+        @media (max-width: 768px) {
+            .home-button {
+                width: 40px;
+                height: 40px;
+            }
+            .home-button i {
+                font-size: 1.2rem;
+            }
+            .heart {
+                width: 20vw;
+                height: 20vw;
+            }
+            .heart::before,
+            .heart::after {
+                width: 20vw;
+                height: 20vw;
+            }
+            h1 {
+                font-size: 6vw;
+            }
+            h2 {
+                font-size: 4vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 7vw;
+            }
+            h2 {
+                font-size: 5vw;
+            }
+        }
     </style>
 </head>
 <body class="fade-in">
@@ -133,7 +171,7 @@
     <div class="container">
         <div class="heart"></div>
         <h1>I Love You</h1>
-        <h2> Happy Propose Day Baby!</h2>
+        <h2>Happy Propose Day Baby!</h2>
     </div>
 
 </body>
