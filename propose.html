@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Propose Day</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* General Page Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffdde1;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+        }
+
+        /* Floating Home Button */
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .home-button:hover {
+            transform: scale(1.2);
+            background-color: rgb(131, 23, 23);
+        }
+        .home-button i {
+            color: white;
+            font-size: 24px;
+        }
+
+        /* Smooth Fade-in on Load */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Smooth Fade-out when Navigating */
+        .fade-out {
+            opacity: 0;
+        }
+
+        /* Centering Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Heart Animation */
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: #ff4d6d;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: beat 1s infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-color: #ff4d6d;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: 50px;
+        }
+
+        /* Beating Animation */
+        @keyframes beat {
+            0%, 100% {
+                transform: scale(1) rotate(-45deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(-45deg);
+            }
+        }
+
+        /* Centered Text */
+        h1 {
+            font-family: 'Sacramento', cursive;
+				color: #6d1d30;
+				font-size: 64px;
+				margin-top: 30px;
+        }
+
+        h2 {
+            font-family: 'Sacramento', cursive;
+				color: #6d1d30;
+				font-size: 36px;
+				margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body class="fade-in">
+    <!-- Floating Home Button -->
+    <a href="index.html" class="home-button">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <!-- Heart and Text Container -->
+    <div class="container">
+        <div class="heart"></div>
+        <h1>I Love You</h1>
+        <h2> Happy Propose Day Baby!</h2>
+    </div>
+
+</body>
+</html>
