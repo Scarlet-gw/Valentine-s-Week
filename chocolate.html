@@ -45,35 +45,34 @@
         }
 
         /* Center text */
-        .center-text {
-            width: 40vw;
-            max-width: 600px;
-            text-align: center;
-        }
-        .center-text h1 {
-            font-family: 'Sacramento', cursive;
-            color: #6d1d30;
-            font-size: clamp(24px, 4vw, 44px);
-            font-weight: bolder;
-        }
-        .sub-text {
-            font-size: clamp(14px, 2vw, 20px);
-            color: #6d1d30;
-            font-weight: bold;
-        }
+        .center-text h1{
+				font-family: 'Sacramento', cursive;
+				color: #6d1d30;
+				font-size: 44px;
+				margin-top: 30px;
+                font-weight: bolder;
+			}
+			
+			.center-text{
+				width: 600px;
+				height: 400px;
+				display: inline-block;
+				top:0;
+				bottom:7;
+			}
 
         /* Moving Road */
         .road-container {
             position: absolute;
             bottom: 0;
             width: 100%;
-            height: 5vh;
+            height: 35px; /* Bigger road */
             overflow: hidden;
         }
 
         .road {
             width: 200%;
-            height: 100%;
+            height: 180px;
             background: url('road-image.png') repeat-x;
             position: absolute;
             animation: moveRoad 5s linear infinite;
@@ -87,11 +86,10 @@
         /* Truck */
         .truck {
             position: absolute;
-            bottom: 5vh;
+            bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 15vw;
-            max-width: 200px;
+            width: 200px; /* Adjusted size for truck */
         }
 
         .truck img {
@@ -102,59 +100,36 @@
         /* Chocolate */
         .chocolate {
             position: absolute;
-            top: -5vh;
-            left: 35%;
-            transform: translateX(-50%) rotate(90deg);
-            width: 7vw;
-            max-width: 140px;
-            height: auto;
+			top: -50px; /* Adjust position */
+			left: 35%;
+			transform: translateX(-50%) rotate(90deg);
+			width: 140px !important; /* Forcefully reduce the width */
+			height: 140px !important; /* Set explicit height */
+
+        }
+
+        .sub-text {
+            font-size: 20px;
+            color: #6d1d30;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 270px; /* Space below the main heading */
         }
 
         /* Smooth Fade-in on Load */
         .fade-in {
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeIn 1s ease-in-out
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
-        /* Media Queries for Responsive Design */
-        @media (max-width: 768px) {
-            .center-text {
-                width: 80vw;
-            }
-            .truck {
-                width: 25vw;
-            }
-            .chocolate {
-                width: 12vw;
-            }
+        /* Smooth Fade-out when Navigating */
+        .fade-out {
+            opacity: 0;
         }
 
-        @media (max-width: 480px) {
-            .home-button {
-                width: 40px;
-                height: 40px;
-            }
-            .home-button i {
-                font-size: 1.2rem;
-            }
-            .center-text h1 {
-                font-size: 6vw;
-            }
-            .sub-text {
-                font-size: 3vw;
-            }
-            .truck {
-                width: 35vw;
-            }
-            .chocolate {
-                width: 16vw;
-            }
-        }
-
-    </style>
+        </style>
 </head>
 <body class="fade-in">
 
@@ -166,7 +141,7 @@
     <!-- Centered text -->
     <div class="center-text">
         <h1>Happy Chocolate Day Baby!</h1>
-        <p class="sub-text">Your chocolate is on the way.</p>
+        <p class="sub-text">Your chocolate is on the way.</p> <!-- New text added -->
     </div>
 
     <!-- Moving Road -->
