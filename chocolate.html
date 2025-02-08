@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolate Day</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffcccb;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        /* Floating Home Button */
+        .home-button {
+            position: absolute;
+            top: 2vh;
+            right: 2vw;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, background-color 0.3s;
+        }
+        .home-button:hover {
+            transform: scale(1.2);
+            background-color: rgb(131, 23, 23);
+        }
+        .home-button i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Center text */
+        .center-text h1{
+				font-family: 'Sacramento', cursive;
+				color: #6d1d30;
+				font-size: 44px;
+				margin-top: 30px;
+                font-weight: bolder;
+			}
+			
+			.center-text{
+				width: 600px;
+				height: 400px;
+				display: inline-block;
+				top:0;
+				bottom:7;
+			}
+
+        /* Moving Road */
+        .road-container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 35px; /* Bigger road */
+            overflow: hidden;
+        }
+
+        .road {
+            width: 200%;
+            height: 180px;
+            background: url('road-image.png') repeat-x;
+            position: absolute;
+            animation: moveRoad 5s linear infinite;
+        }
+
+        @keyframes moveRoad {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Truck */
+        .truck {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px; /* Adjusted size for truck */
+        }
+
+        .truck img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Chocolate */
+        .chocolate {
+            position: absolute;
+			top: -50px; /* Adjust position */
+			left: 35%;
+			transform: translateX(-50%) rotate(90deg);
+			width: 140px !important; /* Forcefully reduce the width */
+			height: 140px !important; /* Set explicit height */
+
+        }
+
+        .sub-text {
+            font-size: 20px;
+            color: #6d1d30;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 270px; /* Space below the main heading */
+        }
+        </style>
+</head>
+<body>
+
+    <!-- Floating Home Button -->
+    <a href="index.html" class="home-button">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <!-- Centered text -->
+    <div class="center-text">
+        <h1>Happy Chocolate Day Baby!</h1>
+        <p class="sub-text">Your chocolate is on the way.</p> <!-- New text added -->
+    </div>
+
+    <!-- Moving Road -->
+    <div class="road-container">
+        <div class="road"></div>
+    </div>
+
+    <!-- Truck -->
+    <div class="truck">
+        <img src="truck-image.png" alt="Truck">
+        <img src="chocolate-image.png" alt="Chocolate" class="chocolate">
+    </div>
+
+</body>
+</html>
