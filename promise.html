@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Promise Day, Soumyajit!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff758c, #ffcccb);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-shadow: 2px 2px 4px rgba(168, 9, 4, 0.877);
+            animation: fadeIn 2s ease-in-out;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.3em;
+            color:rgb(185, 11, 34);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-top: 2px;
+            margin-bottom: 72px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .message-box {
+            background: white;
+            padding: 15px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: black;
+            animation: popIn 1s ease-in-out;
+        }
+
+        .message-box input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .message-box button {
+            background: #ff4f7b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .message-box button:hover {
+            background: #e63e69;
+        }
+
+        .message-container {
+            margin-top: 20px;
+            padding: 10px;
+            width: 90%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            color: black;
+            font-size: 1.1em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        /* Floating Home Button */
+    .home-button {
+        position: absolute;
+        top: 2vh;
+        right: 2vw;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out, background-color 0.3s;
+    }
+    .home-button:hover {
+        transform: scale(1.2);
+        background-color: rgb(131, 23, 23);
+    }
+    .home-button i {
+        color: white;
+        font-size: 1.5rem;
+    }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Smooth Fade-in on Load */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Smooth Fade-out when Navigating */
+        .fade-out {
+            opacity: 0;
+        }
+        
+    </style>
+</head>
+<body class="fade-in">
+
+    <!-- Floating Home Button -->
+    <a href="index.html" class="home-button">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <h1>Happy Promise Day, Love</h1>
+    <p>Our love is built on promises of trust, care, and forever together. I promise to always be with you and to never give up on you or us! </p>
+
+    <!-- Messaging Box -->
+    <div class="message-box">
+        <input type="text" id="message" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- Message Display -->
+    <div class="message-container" id="message-display">
+        Waiting for a message from you... 😊
+    </div>
+
+    <script>
+        function sendMessage() {
+            let msg = document.getElementById("message").value;
+            let display = document.getElementById("message-display");
+            if (msg.trim() === "") {
+                alert("Please type a message before sending!");
+                return;
+            }
+            display.innerHTML = "💬 Soumyajit: " + msg;
+            document.getElementById("message").value = ""; // Clear input field
+        }
+    </script>
+
+</body>
+</html>
