@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiss Day Surprise | For Soumyajit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* General Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffdde1;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    padding-top: 20vh;
+}
+
+/* Heading & Subtitle */
+h1 {
+    font-size: 2.5em;
+    color: #d63447;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #722f37;
+    margin-bottom: 20px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* Floating Home Button */
+.home-button {
+    position: fixed; /* Stays in the same place */
+    top: 2vh;
+    right: 2vw;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+    z-index: 999; /* Keeps it above everything else */
+}
+
+.home-button:hover {
+    transform: scale(1.2);
+    background-color: rgb(131, 23, 23);
+}
+
+.home-button i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Tap to Reveal Button */
+#revealButton {
+    padding: 12px 20px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #ff4d6d;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#revealButton:hover {
+    background-color: #d63447;
+}
+
+/* Popup Message Box */
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: none;
+    animation: popUp 0.5s ease-in-out;
+}
+
+.popup-content {
+    position: relative;
+}
+
+/* Uploaded Animation Styling */
+.popup-animation {
+    width: 100%;
+    max-width: 250px;
+    display: block;
+    margin: 0 auto 15px;
+    border-radius: 10px;
+}
+
+/* Glowing Heart Text */
+#popup h2 {
+    color: #d63447;
+    font-size: 1.8em;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #ff4d6d; }
+    100% { text-shadow: 0 0 15px #ff4d6d; }
+}
+
+/* Message Text */
+.message {
+    font-size: 1.3em;
+    color: #d63447;
+    margin-top: 10px;
+}
+
+.signature {
+    font-size: 1.1em;
+    color: #722f37;
+    font-style: italic;
+}
+
+/* Close Button */
+#closePopup {
+    margin-top: 15px;
+    padding: 8px 15px;
+    font-size: 1em;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#closePopup:hover {
+    background: #d63447;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Popup Animation */
+@keyframes popUp {
+    from { transform: translate(-50%, -60%) scale(0.8); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Smooth Fade-in on Load */
+.fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body class="fade-in">
+
+    <!-- Floating Home Button -->
+    <a href="index.html" class="home-button">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <div class="container">
+        <h1>Happy Kiss Day, My Love!</h1>
+        <p class="subtitle">A little surprise just for you...</p>
+
+        <button id="revealButton">Tap to Reveal</button>
+
+        <div id="popup" class="hidden">
+            <div class="popup-content">
+                <!-- Uploaded Animation Here -->
+                <img src="kiss.gif" alt="Kiss Day Animation" class="popup-animation">
+                
+                <h2> Happy Kiss Day! </h2>
+                <p class="message">"Every kiss is a whisper of love, and today, I send you a million of them! ❤️"</p>
+                <p class="signature">— Yours, Shreya</p>
+                <button id="closePopup">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("revealButton").addEventListener("click", function() {
+    document.getElementById("popup").style.display = "block";
+});
+
+document.getElementById("closePopup").addEventListener("click", function() {
+    document.getElementById("popup").style.display = "none";
+});
+
+    </script>
+</body>
+</html>
