@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Special</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff758c, #ffd1e4);
+    overflow: hidden;
+}
+
+/* Floating Home Button */
+.home-button {
+    position: fixed;
+    top: 2vh;
+    right: 2vw;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+    z-index: 999;
+}
+
+.home-button:hover {
+    transform: scale(1.2);
+    background-color: rgb(131, 23, 23);
+}
+
+.home-button i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: floatUp 5s infinite ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+/* Floating Hearts Animation */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* Main Content */
+.container {
+    text-align: center;
+    margin-top: 15vh;
+    color: white;
+}
+
+.valentine-heading {
+    font-size: 3rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.valentine-message {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Button */
+.open-carousel-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: white;
+    border: none;
+    color: #ff3366;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: 0.3s ease-in-out;
+}
+
+.open-carousel-btn:hover {
+    background-color: #ff3366;
+    color: white;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup Content */
+.popup-content {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 50vw;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    background: rgba(255, 255, 255, 0.7); /* Light background for visibility */
+    padding: 5px 10px; /* Increased padding for easier clicks */
+    border-radius: 50%; /* Circular shape */
+    cursor: pointer;
+    z-index: 1001; /* Ensures it stays on top of images */
+    transition: color 0.3s ease-in-out, transform 0.2s, background 0.3s;
+}
+
+.close-btn:hover {
+    color: red;
+    background: rgba(255, 255, 255, 0.9); /* More visible on hover */
+    transform: scale(1.2);
+}
+
+
+
+/* Carousel */
+.carousel {
+    position: relative;
+}
+
+/* Updated Image Styles */
+.carousel-images img {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: cover;  /* Ensures images are cropped and fit within bounds */
+    display: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-images img:hover {
+    transform: scale(1.05);
+}
+
+/* Carousel Buttons */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Floating Home Button -->
+    <a href="index.html" class="home-button">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <!-- Floating Hearts Container -->
+    <div id="hearts-container"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="valentine-heading">Happy Valentine's Day ❤️</h1>
+        <p class="valentine-message">Celebrate love with beautiful moments.</p>
+        <button class="open-carousel-btn">View Special Moments</button>
+    </div>
+
+    <!-- Image Carousel Popup -->
+    <div class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="img1.jpeg" alt="Image 1">
+                    <img src="img2.jpg" alt="Image 2">
+                    <img src="img3.jpeg" alt="Image 3">
+                    <img src="img4.jpg" alt="Image 4">
+                    <img src="img5.jpeg" alt="Image 5">
+                    <img src="img6.jpg" alt="Image 6">
+                    <img src="img7.jpeg" alt="Image 7">
+                    <img src="img8.jpeg" alt="Image 8">
+                </div>
+                <button class="prev-btn">&#10094;</button>
+                <button class="next-btn">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Floating Hearts Effect
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    setInterval(createHeart, 500);
+
+    // Carousel Functionality
+    const popupOverlay = document.querySelector(".popup-overlay");
+    const openCarouselBtn = document.querySelector(".open-carousel-btn");
+    const closeBtn = document.querySelector(".close-btn");
+    const images = document.querySelectorAll(".carousel-images img");
+    const nextBtn = document.querySelector(".next-btn");
+    const prevBtn = document.querySelector(".prev-btn");
+
+    let index = 0;
+    let cycleCount = 0;
+
+    openCarouselBtn.addEventListener("click", () => {
+        popupOverlay.style.display = "flex";
+        images[index].style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+        popupOverlay.style.display = "none";
+        images.forEach(img => img.style.display = "none");
+        index = 0;
+        cycleCount = 0; // Reset cycle count
+    });
+
+    nextBtn.addEventListener("click", () => {
+        images[index].style.display = "none";
+        index = (index + 1) % images.length;
+        images[index].style.display = "block";
+
+        if (index === 0) { // Completed one full cycle
+            cycleCount++;
+            if (cycleCount === 1) {
+                alert("You make my world a better place.");
+            }
+        }
+    });
+
+    prevBtn.addEventListener("click", () => {
+        images[index].style.display = "none";
+        index = (index - 1 + images.length) % images.length;
+        images[index].style.display = "block";
+    });
+</script>
+</body>
+</html>
